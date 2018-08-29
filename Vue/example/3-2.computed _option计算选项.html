@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>computed option 计算选项</title>
+    <script src="../assets/js/vue.js"></script>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Computed option 计算属性</h1>
+    <hr>
+
+    <div id="app">
+        {{msg}} :{{newPrice}}
+        <ul>
+            <li v-for="item in reverseNew">{{item.title}}----{{item.data}}</li>
+        </ul>
+    </div>
+
+    <script>
+        var newlist = [
+            {title:"习近平:运筹金砖合作 实现金色十年新飞跃" ,data:"2018/6/9"},
+            {title:"王毅谈中美贸易:单边主义不可接受 威胁施压适得其反" ,data:"2018/6/10"},
+            {title:"非法收受巨额财物 中宣部原副部长鲁炜被提起公诉" ,data:"2018/6/11"},
+            {title:"MH370最新报告:曾人工控制调转 无法确认失联原因" ,data:"2018/612"},
+            {title:"习近平:运筹金砖合作 实现金色十年新飞跃" ,data:"2018/6/13"}
+        ]
+        var app = new Vue({
+            el:"#app",
+            data:{
+                msg:"价格",
+                price:100,
+                newlist:newlist
+            },
+            computed:{
+                newPrice:function(){
+                    return this.price = "¥" +this.price + "元";
+                },
+                reverseNew:function(){
+                    return this.newlist.reverse();
+                }
+            }
+           
+            
+
+        })
+    </script>
+
+   
+</body>
+</html>

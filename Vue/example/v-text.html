@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>v-text 指令</title>
+    <script src="../assets/js/vue.js"></script>
+</head>
+<body>
+    <h1>v-text 指令</h1>
+    <br>
+    <div id="app">
+        <span v-text="message"></span> </br>
+        <span>{{message}}</span></br>
+        <span v-text="todo"></span>
+    </div>
+        
+   
+    <script>
+         var app = new Vue({
+             el:'#app',
+             data:{
+                 message:'{{xxxxx}}与v-text指令的区别:当网速很慢或者javascript出错时，会暴露{{XXX}}。Vue就提供了v-text解决此问题',
+                 todo:"<h1>何孟洛</h1>,此写法会造成 xss攻击"
+             }
+         })
+     </script>
+    
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Component -1</title>
+    <script src="../assets/js/vue.js"></script>
+</head>
+<body>
+    <h1>Component-1</h1>
+    <hr>
+
+    <div id="app">
+        {{msg}}
+    </div>
+    <hr>
+
+     <h4>全局组件</h4>
+    <div id="componentDome">
+       <button-counter></button-counter> 
+    </div>
+    <hr>
+
+    <h4>局部组件</h4>
+    <div id="ww">
+        <yyy></yyy>
+    </div>
+
+    <script type="text/javascript">
+        var app = new Vue({
+            el:'#app',
+            data:{
+                msg:'基础组件,全局组件与局部组件'
+            }
+        });
+
+        //定义一个名字为 button-counter的新组建
+        Vue.component('button-counter',{
+            data:function(){
+                return {
+                    count:0
+                }
+            },
+            template:`
+                <button @click="count++">你第{{count}}次点击了我</button>
+            `
+        });
+
+        new Vue({el:'#componentDome'});
+
+        var ww = new Vue({
+            el:'#ww',
+            components:{
+                "yyy":{
+                    template:`<div style="color:green">这是一个局部注册组件</div>`
+                }
+            }
+         
+        })
+    </script>
+</body>
+</html>

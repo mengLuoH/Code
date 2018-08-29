@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>template 模板制作</title>
+    <script src="../assets/js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        {{message}}
+    </div>
+
+    <!--2. 写在template标签中的模板 -->
+    <template id="code1">
+        <h1 style="color:green">模板写法第二种</h1>
+    </template>
+
+    <!-- 3.写在script标签中的模板 -->
+    <script type="x-template" id="code2">
+        <h1 style="color:yellow">模板写法第三种-->script模板写法</h1>
+    </script>
+
+    <script type="text/javascript">
+    var app = new Vue({
+        el:'#app',
+        data:{
+            message:'00000'
+        },
+        // 模板语法所需要注意的是   需要些反引号  `   `;
+
+
+        // 1.直接写在选项中的模板
+        // template:`
+        //     <h1 style="color:red">模板写法第一种</h1>
+        // `
+        
+        
+        //template:`#code1`
+        template:`#code2`
+    })
+    </script>
+    
+</body>
+</html>

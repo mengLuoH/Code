@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>methods_option</title>
+    <script src="../assets/js/vue.js"></script>
+</head>
+<body>
+        <h1>methods Option</h1>
+        <hr>
+        <div id="app">
+            {{ a }}
+            <p><button @click="add(2)">add</button></p>
+
+            <btn @click.native = "add(3)"></btn>
+        </div>
+        <br>
+
+        <button onclick="app.add(4)">外部调用构造器里的方法</button>
+     
+        <script type="text/javascript">
+            var btn ={
+                template:`<button>组件按钮</button>`
+            }
+
+
+            var app=new Vue({
+                el:'#app',
+                data:{
+                    a:1
+                },
+                methods:{
+                    add:function(num){
+                        if(num!=''){this.a+=num}
+                        else{this.a++}
+                    }
+                },
+                components:{
+                    "btn":btn
+                }
+            })
+        </script>
+    
+</body>
+</html>

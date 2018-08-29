@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>SVG-画圆</title>
+    <style>
+        .wrapper{
+            -webkit-transform: rotate(90deg);
+            -moz-transform: rotate(90deg);
+            -ms-transform: rotate(90deg);
+            -o-transform: rotate(90deg);
+            transform: rotate(90deg);
+           
+            margin: 0 auto;
+        }
+        .demo-Circle-custom{
+            -webkit-transform:rotate(-90deg);
+            -moz-transform: rotate(-90deg);
+            -ms-transform: rotate(-90deg);
+            -o-transform: rotate(-90deg);
+            transform: rotate(-90deg);
+        } 
+        .demo-Circle-custom h1{
+            font-size: 16px;
+            color: #000;
+        }
+
+        .demo-Circle-custom p{
+            font-size: 12px;
+            color: #919CA4;
+        }
+
+
+    </style>
+</head>
+<body>
+   
+    <div class="wrapper" style="width: 200px; height: 200px;">
+        <svg viewBox="0 0 100 100">
+            <path d="M 50,50 m 0,-49
+                a 49,49 0 1 1 0,98
+                a 49,49 0 1 1 0,-98" stroke="#eaeef2" stroke-width="2" fill-opacity="0">
+            </path> 
+            <path d="M 50,50 m 0,-49
+                a 49,49 0 1 1 0,98
+                a 49,49 0 1 1 0,-98" stroke-linecap="square" stroke="#F0DBA9" 
+                stroke-width="2" fill-opacity="0" 
+                style="stroke-dasharray: 307.876px, 307.876px; stroke-dashoffset: 153.938px; transition: stroke-dashoffset 0.6s ease 0s, stroke 0.6s ease;">
+            </path>
+        </svg> 
+
+       <div class="lock">
+                <img src="" alt="">
+            </div> 
+            <div class="demo-Circle-custom">
+                <h1>4200/1000000</h1> 
+                <p>真实用户</p>
+            </div>
+    </div>
+    <div>
+            
+        </div>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>mixins 混入选项操作</title>
+    <script src="../assets/js/vue.js"></script>
+    <style>
+        h4{
+            color: #c17cee;
+        }
+    </style>
+</head>
+<body>
+    <h1>mixins 混入选项操作</h1>
+    <h2>用途：</h2>
+    <h4>在你已经写好了构造器后，需要增加方法或者临时的活动时使用的方法，这时用混入会减少源代码的污染。</h4>
+    <h4>很多地方都会用到的公用方法，用混入的方法可以减少代码量，实现代码重用。</h4>
+
+    <h2>注意点:</h2>
+    <h4>1.全局混入的顺序优先于混入和构造器原生updated</h4>
+    <h4>2.当混入方法和构造器的方法重名时，混入的方法无法展现，也就是不起作用。</h4>
+    <hr>
+    <div id="app">
+        <p>num:{{num}}</p>
+        <p><button @click="add">增加数量</button></p>
+
+    </div>
+
+    <script>
+         var addConsole = {
+            updated() {
+               console.log("数据发生了变化"+this.num); 
+            },
+
+        };
+
+        Vue.mixin({
+            updated:function () {
+                console.log("全局混入");
+            }
+        })
+
+        var app = new Vue({
+            el:"#app",
+            data:{
+                num:1,
+
+            },
+            methods:{
+                "add":function(){
+                    return this.num++;
+                }
+            },
+            updated:function(){
+                console.log("原生构造器中混入");
+            },
+            mixins:[addConsole],
+
+
+        })
+    </script>
+    
+</body>
+</html>

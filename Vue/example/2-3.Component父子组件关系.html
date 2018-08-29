@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Component 父子组件</title>
+    <script src="../assets/js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <hkl></hkl>
+    </div>
+
+    <script>
+        var son = {
+            template:`<h2 style="color:green">子组件</h2>`
+        };
+
+        var hklComponent = {
+            template:
+                `
+                    <div>
+                        <h1 style="color:red">父组件</h1>
+                        <p>1111111111</p>
+                        <son></son>
+                    </div>
+                `,
+            components:{
+                "son":son
+            }
+        };
+
+        var app = new Vue({
+            el:"#app",
+            components:{
+                "hkl":hklComponent
+            }
+        })
+    
+    </script>
+</body>
+</html>

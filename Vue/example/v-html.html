@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>v-html 指令</title>
+    <script src="../assets/js/vue.js"></script>
+</head>
+<body>
+    <h1>v-html 指令</h1>
+
+    <br>
+
+    <div id="app">
+        <span v-html="message"></span> </br>
+        <span v-html="todo"></span>
+    </div>
+    
+     <script>
+         var app = new Vue({
+             el:'#app',
+             data:{
+                 message:'v-html指令学习',
+                 todo:"<h1>使用直接输出标签的方式</h1>！！！！！！一般不建议使用，安全性能较低，在生产环境中动态渲染html是非常危险的，容易导致XSS攻击"
+             }
+         })
+     </script>
+    
+</body>
+</html>

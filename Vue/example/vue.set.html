@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>vue.set 全局操作</title>
+    <script src="../assets/js/vue.js"></script>
+</head>
+<body>
+    <h1>vue.set 全局操作</h1>
+    <hr>
+
+    <div id="app">
+        {{count}}
+        <ul>
+            <li v-for ="item in items">{{item}}</li>
+            
+        </ul>
+    </div>
+    <button onclick="add()">Add</button>
+
+    <script type="text/javascript">
+      
+ 
+
+        function add(){
+            // 三种方法实现
+
+            // 1.Vue.set
+            // Vue.set(Outdata,'count',9);
+
+            // 2.用Vue对象的方法添加
+            // app.count++;
+            
+            // 3.直接操作外部数据
+            //Outdata.count++;
+
+            //console.log("111111");
+            //app.items[1]='hemngluo'; //由于javascript 限制，Vue无法检测，此方法无法更新被修改的数组
+            Vue.set(app.items,1,"hemngluo");
+
+
+        };
+        var Outdata = {
+            count:1,
+            items:["www","hhh","yyy"]
+        };
+     
+       var app = new Vue({
+           el:'#app',
+           data:Outdata
+       });
+
+      
+
+       
+    </script>
+    
+</body>
+</html>

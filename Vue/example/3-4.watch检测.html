@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>watch 检测</title>
+    <script src="../assets/js/vue.js"></script>
+    <style>
+        h3{
+            color: #43c6e7;
+        }
+    </style>
+</head>
+<body>
+    <h1>watch option </h1>
+    <h3>使用场景：使用watch 检测温度，根据温度的变化来建议穿什么衣服。  温度大于26度时，我们建议穿T恤短袖，温度小于26度大于0度时，我们建议穿夹克长裙，温度小于0度时我们建议穿棉衣羽绒服。</h3>
+    <div id="app">
+        <p>今日温度：{{temperature}}°</p>
+        <p>建议穿衣：{{clothes}}</p>
+        <p><button @click="add">warming</button></p>
+        <p><button @click="reduce">cooling</button></p>
+    </div>
+
+    <script>
+        var clothes =["T袖短裤","夹克长裤","棉衣羽绒服"];
+        var app = new Vue({
+            el:"#app",
+            data:{
+                temperature:1,
+                clothes:'夹克长裤'
+            },
+            methods:{
+               add:function(){
+                   this.temperature+=5;
+               },
+               reduce:function(){
+                   this.temperature-=5;
+               }
+            },
+
+            // watch:{
+            //     temperature:function(newtemperature,oldtemperature){
+            //       if(newtemperature >= 26){
+            //           this.clothes =clothes[0];
+            //       }else if(newtemperature<26 && newtemperature>0){
+            //           this.clothes = clothes[1];
+            //       }else{
+            //           this.clothes = clothes[2];
+            //       }
+
+            //   }
+            // }
+            
+        });
+
+        app.$watch('temperature',function(newtemperature,oldtemperature){
+            if(newtemperature >= 26){
+                this.clothes =clothes[0];
+            }else if(newtemperature<26 && newtemperature>0){
+                this.clothes = clothes[1];
+            }else{
+                this.clothes = clothes[2];
+            }
+        })
+
+    </script>
+    
+</body>
+</html>

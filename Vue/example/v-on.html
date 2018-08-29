@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>v-on 绑定事件监听</title>
+    <script src="../assets/js/vue.js"></script>
+</head>
+<body>
+    <h1>v-on 绑定事件监听 记分器</h1>
+    <p>v-on:click="add"======@click="add"</p>
+    <p>绑定回车事件 v-on:keyup.enter = ""</p>
+    <p>绑定回车事件 v-on:keyup.13 = ""</p>
+    
+    <hr>
+
+    <div id="app">
+        本场比赛得分：{{count}} </br>
+        <p>
+            <button v-on:click="add">加分</button>
+            <button @click="decrease">减分</button></br>
+            <!-- 绑定回车事件 v-on:keyup.enter = "" -->
+            <input type="text" v-on:keyup.enter="onEnter" v-model="count1">
+        </p>
+
+    </div>
+
+    <script>
+        var app = new Vue({
+            el:'#app',
+            data:{
+                count:0,
+                count1:1
+            },
+            methods:{
+                // 加分
+                add:function(){
+                    this.count++;
+                },
+                // 减分
+                decrease:function(){
+                    this.count--;
+                },
+                // 按下enter键，让输入框的分数类加在原来的分数上
+                onEnter:function(){
+                    this.count=this.count + parseInt(this.count1) ;
+                }
+            }
+
+        })
+    </script>
+    
+</body>
+</html>

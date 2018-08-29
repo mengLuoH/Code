@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>border-radio 实现</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+       .out{
+            width: 200px;
+            height: 200px;
+            border:4px solid #28323F;
+            border-top:4px solid #28323F; 
+            border-left:4px solid #F0DBA9;
+            border-right:4px solid #28323F;
+            border-bottom:4px solid #F0DBA9;
+            border-radius: 50%;
+            transform: rotate(-45deg);
+            position: relative;
+
+            margin-bottom: 24px;
+        }
+        .in{
+            width: 184px;
+            height: 184px;
+            border:1px solid #28323F;
+            border-radius: 50%;
+            position: absolute;
+            top: 7px;
+            left:7px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+        }
+        .lock{
+            position: relative;
+            top: 12px;
+            left: 62px;
+        }
+
+        .key{
+            position: relative;
+            top: 20px;
+            left:82px;
+        }
+
+        .frame{
+            width: 204px;
+            height: 77px;
+            border: 2px solid #192430;
+            border-radius: 2px;
+        }
+        .frame p{
+            margin: 0 auto;
+            opacity: 0.65;
+            font-size: 12px;
+            color: #919CA4;
+            text-align: center;
+            margin-top: 24px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="circle">
+        <div class="lock">
+            <img src="./lock.png" alt="">
+        </div>
+        <div class="out">
+            <div class="in">
+                <p>4200/1000000</p>
+                <!-- <p>真实用户</p> -->
+            </div>
+        </div>
+
+        <div class="key_frame">
+            <div class="key">
+                <img src="./ico_lock.png" alt="">
+            </div>
+            <div class="frame">
+                <p>
+                    达到目标 <br>
+                    解锁新功能
+                </p>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>

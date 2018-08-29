@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Component 的prop属性</title>
+    <script src="../assets/js/vue.js"></script>
+</head>
+<body>
+    <div id="app" >
+        <hml where="新疆"></hml>
+
+        <hml where="三亚"></hml>
+
+        <hml where="新疆"></hml>
+
+        <meng where-from="欧洲"></meng>
+
+        <meng v-bind:where-from="msg"></meng>
+    </div>
+
+    <script>
+        var app = new Vue({
+            el:'#app',
+            data:{
+                msg:"法国巴黎"
+            },
+
+            // 包含多个组件
+            components:{
+                "hml":{
+                    template:`<p>我来自中国{{where}}</p>`,
+                    props:['where']
+                },
+                "meng":{
+                    template:`<p>你来自欧洲{{whereFrom}}</p>`,
+                    props:['whereFrom']
+                }
+            }
+        });
+    </script>
+    
+</body>
+</html>

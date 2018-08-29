@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue.directive 自定义指令</title>
+    <script src="../assets/js/vue.js"></script>
+</head>
+<body>
+    <div id="app" >
+        <div v-color="color">{{num}}</div>
+        <button v-on:click="add">增加</button>
+    </div>
+    <script>
+        Vue.directive("color",function(el,binding){
+            console.log(el);
+            console.log(binding);
+            console.log(binding.name);
+            console.log(binding.expression);
+            el.style="color:"+binding.value;
+                   
+        })
+        var app = new Vue({
+            el:"#app",
+            data:{
+                num:10,
+                color:"green"
+            },
+            methods:{
+                add:function(){
+                    this.num++;
+                }
+            }
+        })
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>flex布局</title>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .test{
+            display: inline-flex;
+        }
+        #box{
+            width: 1000px;
+            height: 800px;
+            border: #000 solid 2px;
+            margin: 0 auto;
+
+            /* 设置伸缩盒子容器 */
+            display: flex; 
+        }
+        .item{
+            width: 200px;
+            height: 200px;
+        }
+        .item:nth-child(1){
+            background-color: #fff000;
+        }
+        .item:nth-child(2){
+            background-color: #a8e271;
+        }
+        .item:nth-child(3){
+            background-color: #b37847;
+        }
+        .item:nth-child(4){
+            background-color: #8ae6d2;
+        }
+
+
+    </style>
+</head>
+<body>
+    <span class="test">
+        行内元素
+    </span>
+    <div id="box">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>4-2.实例方法</title>
+    <script src="../assets/js/vue.js"></script>
+</head>
+<body>
+
+    <h1>实例方法</h1>
+    <ul>
+        <li>$mount() 挂载方法</li>
+        <li>$destroy() 卸载方法</li>
+        
+    </ul>
+    <hr>
+    <div id="app">
+        {{msg}}
+    </div>
+    <p><button onclick="destroy()">卸载</button></p>
+    <script>
+        function destroy(){
+            vm.$destroy();
+        }
+        // var app = new Vue({
+        //     el:'#app',
+        //     data:{
+        //         msg:'11111'
+        //     }
+        // });
+        var hml = Vue.extend({
+            template:`
+                <div>{{msg}}</div>
+            `,
+            data:function(){
+                return{
+                    msg:'hmlstart'
+                } 
+            }
+        });
+
+        var vm = new hml().$mount("#app");
+    </script>
+    
+</body>
+</html>

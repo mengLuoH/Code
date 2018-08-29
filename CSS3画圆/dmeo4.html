@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>border-radio 实现</title>
+    <script src="http://cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+    <style>
+        .circle{
+    width: 200px;
+    height: 200px;
+    position: relative;
+    border-radius: 50%;
+    background:  rgba(0,120,200,0.2);
+}
+.circle .left,.circle .right{
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.left{
+    clip: rect(0,100px,auto,0);
+}
+.right{
+    clip: rect(0,auto,auto,100px);
+}
+.left_con,.right_con{
+    display: block;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: rgb(0,120,200); 
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.left_con{
+    clip: rect(0,100px,auto,0);
+}
+.right_con{
+    clip: rect(0,auto,auto,100px);
+}
+.mask {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    left: 25px;
+    top: 25px;
+    background: #FFF;
+    position: absolute;
+    text-align: center;
+    line-height: 150px;
+    font-size: 16px;
+}
+        
+    </style>
+</head>
+<body>
+        <div class="circle">
+                <div class="left">
+                    <div class="left_con"></div>
+                </div>
+                <div class="right">
+                    <div class="right_con"></div>
+                </div>
+                <div class="mask">
+                    <span>60</span>%
+                </div>
+            </div>
+
+
+            <script>
+                var annulus = function(speed){
+    var _this = this;
+    _this.speed = speed||10;
+    function init(){
+        circle();
+    }
+    function circle(){
+        $('.circle').each(function(index, el) {
+            var numStart = 0;
+            var num = $(this).find('span').text() * 3.6;
+            var timer = null;
+            var that = this;
+            timer = setInterval(function(){
+                if(numStart>num){
+                    clearInterval(timer);
+                    tiemr = null;
+                }
+                animateLoading(that,numStart);
+                numStart += 3.6;
+            },_this.speed);
+        });
+    }
+    function animateLoading(_this,num){
+        if (num <= 180) {
+            $(_this).find('.right_con').css({'transform':"rotate(" + num + "deg)"});
+
+        } else {
+            $(_this).find('.right_con').css({'transform': "rotate(180deg)"});
+            $(_this).find('.left_con').css({'transform': "rotate(" + (num - 180) + "deg)"});
+        };
+    };
+    return {
+        init:init
+    }
+}
+
+var a = new annulus(10);
+a.init();
+            </script>
+      
+</body>
+</html>

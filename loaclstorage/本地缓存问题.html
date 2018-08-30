@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../Vue/assets/js/jquery-3.3.1.js"></script>
+    <title>本地缓存问题</title>
+    <style>
+        input{
+            font-size: 15px;
+            width: 200px;
+            height: 30px;
+        }
+    </style>
+</head>
+<body>
+    <input id="inpt" type="text" value="请输入内容" />
+    <input id="clickb" type="button" value="点击看到提示" />
+    <input id="save" type="button" value="点击保存" />
+    <input id="delect" type="button"value="点击清除保存" />
+
+    <script>
+        //sessionStorage
+        //获取缓存
+        var getinfor = window.sessionStorage.getItem("inpt");
+        $("#save").click(function(){
+            // 存储值
+            window.sessionStorage.setItem("inpt",$("#inpt").val());
+        });
+        
+        $("#clickb").click(function(){
+            alert("您输入的内容是：" + getinfor);
+        });
+
+        $("#delect").click(function(){
+            //清除缓存
+            window.sessionStorage.removeItem("inpt");
+        });
+
+
+
+        //localstorage
+        /*$("#save").click(function(){
+            localStorage.setItem("inpt",$("#inpt").val());
+        });
+        $("#delect").click(function(){
+            localStorage.removeItem("inpt");
+        });
+        $("#clickb").click(function(){
+            //清除缓存
+            alert("您输入的内容是：" + localStorage.getItem("inpt"));
+        });
+        */ 
+        
+    
+    </script>
+</body>
+</html>

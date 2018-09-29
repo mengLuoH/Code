@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>localStorage 本地存储</title>
+    <style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    </style>
+</head>
+<body>
+    <h1>localStorage 本地存储</h1>
+    <script>
+        localStorage.setItem("x",1);
+        localStorage.getItem("x");
+
+        localStorage.setItem("y",2);
+        localStorage.getItem("y");
+
+        localStorage.setItem("z",3);
+        localStorage.getItem("z");
+
+        for(var i = 0; i<localStorage.length;i++){
+            var name =localStorage.key(i);
+            var value = localStorage.getItem(name);
+            console.log("key:"+name,"value:"+value);
+            
+        }
+        console.log("缓存长度："+localStorage.length);
+        //清除缓存 中“x”项
+        // localStorage.removeItem("x"); 
+        // 全部删除  
+        // localStorage.clear(); 
+
+        // 识别存储机制
+        var memory = window.localStorage || (window.UserDataStorage && new UserDataStorage()) || new cookieStorage();
+        // 然后在对应的机制中查询数据
+        var username = memory.getItem("username");  
+        console.log(username);
+
+        
+    
+    
+    </script>
+    
+</body>
+</html>

@@ -22,15 +22,18 @@
 
     <script>
         //sessionStorage
+        
+
+         $("#save").click(function(){
+            // 存储值
+            window.sessionStorage.setItem("inpt",$("#inpt").val()); //===>(key,value)
+         });
+
         //获取缓存
         var getinfor = window.sessionStorage.getItem("inpt");
-        $("#save").click(function(){
-            // 存储值
-            window.sessionStorage.setItem("inpt",$("#inpt").val());
-        });
         
         $("#clickb").click(function(){
-            alert("您输入的内容是：" + getinfor);
+            alert("您刚才输入的内容是：" + getinfor);
         });
 
         $("#delect").click(function(){

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>数组方法</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>数组方法</h1>
+
+
+    <script>
+
+        // 1、join()
+        var a = [1,2,3,4,5];
+        var aq = a.join();
+        console.log(aq); //=>1,2,3,4,5
+
+        var aw = a.join("_");
+        console.log(aw); //=>1_2_3_4_5
+
+        var ae = a.join("");
+        console.log(ae); //=>123456
+
+        var b = Array(10);
+        var bq = b.join('-');
+        console.log(bq); //=>---------    9个连子号组成的字符串
+
+        //2、 reverse()  反转数组
+        var c = [1,2,3];
+        c.reverse();  //=>c[3,2,1]
+        console.log(c);   //=>c[3,2,1]
+
+        // 3、sort()  排序 并返回排序后的数组
+        var z = new Array("banana","cherry","apple");
+        console.log(z.sort().join("-"));
+
+
+        var w = [33,4,1111,222];
+        console.log(w.sort());   //=>按字母表顺序排序  1111,222,33,4
+        
+        // 从小到大进行排序
+        w.sort(function(a,b){
+            return a-b;  //=>根据顺序 返回负数，0，正数
+        });
+        console.log(w);  //=>返回排序数组  w[4,33,222,1111]
+        
+        // 从大到小进行排序
+        w.sort(function(a,b){
+            return b-a;  //=>根据顺序 返回负数，0，正数
+        });
+        console.log(w);  //=>返回排序数组  w[1111, 222, 33, 4]
+
+        // 对一个字符串数组执行不去风大小写字母表排序
+        var t = ["ant",'Bug','Cat','Dog'];
+        console.log(t.sort());  //=>区分大小写 ["Bug", "Cat", "Dog", "ant"]
+
+        t.sort(function(s,t){
+            var a = s.toLowerCase();
+            var b = t.toLowerCase();
+            if(a<b) return -1;
+            if(a>b) return 1;
+            return 0
+        });
+        console.log(t); //=> ["ant", "Bug", "Cat", "Dog"]
+
+        // 4、concat()  创建并返回新数组
+        var u = [1,2,3];
+        console.log(u.concat(4,5,));  //=>[1, 2, 3, 4, 5]
+        console.log(u.concat([4,5]));  //=>[1, 2, 3, 4, 5]
+        console.log(u.concat([4,5],[6,7]))  //=> [1, 2, 3, 4, 5, 6, 7]
+        console.log(u.concat(4,[5,[6,7,8]]));  //=>[1, 2, 3, 4, 5, [6,7,8]]
+
+        // 5、slice() 截取数组,不会修改样原来数组
+        var p = [1,2,3,4,5,6];
+        //       | | | | | |
+        //      [0,1,2,3,4,5]
+        console.log(p.slice(0,3)); //=>1,2,3   （第一个参数截取的起始位置，截取的个数）
+        console.log(p); //=>p[1,2,3,4,5,6];   原来数组不会被修改到
+        console.log(p.slice(3));  //=>4,5,6  (从索引值为3的地方开始截取，截取到数组末尾，包括索引值为3的元素)
+        console.log(p.slice(1,-1));  //=>2,3,4,5  
+        console.log(p.slice(-3,-1));  //=>4, 5
+
+        // 6、splice() 在数组中插入或删除元素  ,返回后数组是被删过元素后的的数组
+        var n = [1,2,3,4,5,6,7,8,9];
+        // console.log("splice删除数组元素，从索引值第四位开始："+n.splice(4));   //=>[5,6,7,8,9]
+        // console.log(n.splice(1,3));  //=>[2,3,4]   (第一个参数代表删除的起始位置，第二个参数代表被删除的个数)
+        // console.log(n);
+        // console.log(n.splice(1,1));  //=>2  (从索引值1的位置开始删除，只删除1位)
+        
+        // splice()的前两个参数制定了需要删除的数组元素。紧随其后的任意个数的参数制定了需要插入到数组中的元素。
+        var i = [1,2,3,4,5];
+        //console.log(i.splice(2,0,"c","b")); //=>[]   返回空数组
+        // console.log(i); //=>i =[1, 2, "c", "b", 3, 4, 5]
+
+
+        console.log("数组："+i.splice(2,2,[9,10],"d"));  //=>返回数组 3,4
+        console.log(i);  //=> [1, 2, Array(2), "d", 5]
+
+        // ！！！！！注意：splice()会插入数组本身而非数组的元素
+
+        
+
+        // 7、 push()和pop()方法   返回值为数组长度
+        /*
+            push()和pop()方法允许将数组当做栈来使用。
+            push()方法在数组的尾部添加一个或多个元素，并返回数组新的长度。
+            pop()方法则相反：它删除数组的最后一个元素，减小数组长度并返回它的删除值。
+
+            ！！！注意，两个方法都修改并替换原始数组而非生成一个修改版的新数组 。
+            组合使用push()和pop()能够用javaScript数组实现先进后出的栈
+        **/ 
+        var stack = []; //stack: []
+        console.log(stack.push(1,2,3));  //返回 3   stack：[1,2,3]
+        console.log(stack.pop());   //返回 3        stack：[1,2]
+        console.log(stack.push(4));  //返回3        stack：[1,2,4]
+        console.log(stack.pop()); //返回4           stack：[1,2]
+        console.log(stack.push([6,7]));  //返回3    stack：[1,2,[6,7]]
+        console.log(stack.pop())     //返回 [6,7]   stack：[1,2]
+        console.log(stack.pop())     //返回 2       stack：[1]
+        console.log(stack);
+
+
+        // 8、unshift()和shift()   返回值为数组长度
+        
+           /*  unshift()和shift()方法都是在数组的头部进行元素的插入和删除操作的
+            unshift()在数组的头部添加一个或多个元素，并将已存在的元素移动到更高索引的位置，返回数组新的长度
+            shift()删除数组的第一个元素并将其返回，然后把随后的元素下移一个位置来填补数组头部的空缺 */
+        
+        var h = [];
+        console.log(h.unshift(9)); //返回数组长度 1                   h：[9]
+        console.log(h.unshift(68)); //返回数组长度 2                  h：[68,9]
+        console.log(h.shift()); //返回被删除元素 68                   h：[9]
+        console.log(h.unshift(8,[100,99])); //返回数组长度 3          h:[8,[100,99],9]
+        console.log(h.shift()); //返回被删除元素 8                    h:[[100,99],9]
+        console.log(h.shift())  //返回被删除元素 [100,99]             h：[9]
+        console.log(h.shift())  //返回被删除元素 9                    h:[]
+        console.log(h);
+
+        /* 
+            9、toString()和toLocaleString()
+
+            ！！！注意：输出不包括方括号或其他任何形式的包括数组值的分隔符。
+         */
+         var s = [1,2,3];
+         console.log(s.toString()); //=>  '1,2,3'
+         var d =["good","bad","nice"];
+         console.log(d.toLocaleString()); //=>'good,bad,nice'
+         var vf = [1,[2,'c']];
+         console.log(vf.toString());  //=>'1,2,c'
+
+
+
+
+        
+
+
+
+
+        
+
+
+        
+
+
+
+
+    
+    </script>
+</body>
+</html>

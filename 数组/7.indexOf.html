@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>indexOf</title>
+</head>
+<body>
+    <script>
+        // indexOf() lastIndexOf(从尾部开始搜索)  搜索整个数组中具有给定值的元素（从头至尾搜索）   返回找到的第一个元素的索引(位置)  ，，没有找到返回 -1
+
+        var a = [0,1,0,2,1];
+
+        console.log(a.indexOf(1));  //index=1
+        console.log(a.indexOf(0));  //index=0
+        console.log(a.lastIndexOf(0));  //index=2
+        console.log(a.indexOf(2));   //index=3
+        console.log(a.indexOf(3));  //返回值 -1  没有找到
+    </script>
+    
+</body>
+</html>

@@ -19,12 +19,29 @@
          */
 
         //  求和数组
-         var data = [1,2,3,4,5];
+         var data = [1,2,3,4,5]; 
          var sum = 0;
          data.forEach(function(value){
+             //console.log(value);  // =>1 2 3 4 5
              sum += value;
          });
          console.log(sum);
+
+        //  数组元素的值自加1
+         data.forEach(function(v,i,a){
+             a[i]=v+1;
+         });
+         console.log(data);
+
+         function forEach(a,f,t){
+             try{ a.forEach(f,t); }
+             catch(e){
+                 if(e === forEach.break);
+                 return;
+             }
+         }
+         forEach.break = new Error('StopIteration')
+
 
         
     </script>

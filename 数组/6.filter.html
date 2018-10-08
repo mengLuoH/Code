@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>filter</title>
+</head>
+<body>
+    <script>
+        /* 
+            filter()返回的数组元素是调用的数组的一个子集。
+            传递的函数是用来逻辑判定的：该函数返回true或false。
+            调用判定函数就像调用forEach()和map()一样。如果返回值为true或能转化为true的值，
+            那么传递给判定函数的元素就是这个子集的成员，它将被添加到一个作为返回值的数组中。
+
+         */
+        //  过滤出x小于3的值
+        var a = [5,4,3,2,1];
+        smallvalues = a.filter(function(x){
+             return x<3;
+        });
+        console.log(a);  //不改变原来数组
+        console.log(smallvalues);  //过滤后新数组  1,2
+        
+        // 过滤出偶数
+        everyother = a.filter(function(x,i){
+            // console.log(x,i);  //=>x为数组元素值，i为数组索引
+            return i%2==0;
+        });
+        console.log(everyother);  //过滤后新数组  1,2
+
+        // 把一个Array中的空字符串删掉
+        var arr = ['A', '', 'B', null, undefined, 'C', '  '];
+        var r = arr.filter(function (s) {
+            console.log(s);
+            return s && s.trim();    //IE9以下的版本没有trim()方法
+        });
+        console.log(r); // ['A', 'B', 'C']
+
+        //  压缩空缺并删除undefined和null元素，可以这样使用filter();
+        var a = a.filter(function(x){
+            return x !==undefined && x !=null;
+        });
+    </script>
+    
+</body>
+</html>

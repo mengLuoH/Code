@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>map</title>
+</head>
+<body>
+
+    <script>
+        // map()方法调用的数组的每个元素传递给指定的函数，并返回一个数组，它包含该函数的返回值
+
+        /* map()返回的是新数组，不会修改调用数组 */
+        var a =  [1,2,3];
+        var b = a.map(function(x){
+            return x*x;
+        });
+         console.log(b);
+    
+    </script>
+    
+</body>
+</html>

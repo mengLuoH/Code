@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 数组对象
+        function isArrayLike(o) {
+            if(
+                o &&
+                typeof o  === "object" &&
+                isFinite(o.length) &&
+                o.length >= o &&
+                o.length === Math.floor(o.length) &&
+                o.length <4294967296
+            )
+            return true;
+            else
+                return false;
+            
+        }
+
+    </script>
+    
+</body>
+</html>
